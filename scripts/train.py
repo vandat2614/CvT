@@ -1,7 +1,6 @@
 import sys
 import os
 import math
-from timm.scheduler.cosine_lr import CosineLRScheduler
 
 # Add project root to Python path
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -46,33 +45,33 @@ def train_epoch(model, train_loader, criterion, optimizer, scheduler, device, ep
     correct = 0
     total = 0
     
-    with tqdm(train_loader, desc=f'Epoch {epoch}', leave=False) as pbar:
-        for batch_idx, (data, target) in enumerate(pbar):
-            data, target = data.to(device), target.to(device)
-            
-            optimizer.zero_grad()
-            output = model(data)
-            loss = criterion(output, target)
-            
-            loss.backward()
-            optimizer.step()
-            
-            # Update scheduler
-            scheduler.step() 
-            
-            # Calculate accuracy
-            pred = output.argmax(dim=1)
-            correct += pred.eq(target).sum().item()
-            total += target.size(0)
-            
-            total_loss += loss.item()
-            current_lr = optimizer.param_groups[0]['lr']
-            
-            # pbar.set_postfix({
-            #     'loss': f'{loss.item():.4f}',
-            #     'acc': f'{100. * correct / total:.2f}%',
-            #     'lr': f'{current_lr:.6f}'
-            # })
+    for batch_idx, (data, target) in enumerate(train_loader):
+        data, target = data.to(device), target.to(device)
+        
+        optimizer.zero_grad()
+        output = model(data)
+        loss = criterion(output, target)
+        
+        loss.backward()
+        optimizer.step()
+        
+        # Update scheduler
+        scheduler.step() 
+        
+        # Calculate accuracy
+        pred = output.argmax(dim=1)
+        correct += pred.eq(target).sum().item()
+        total += target.size(0)
+        
+        total_loss += loss.item()
+        current_lr = optimizer.param_groups[0]['lr']
+        
+        # Log every 100 batches
+        if batch_idx % 100 == 0:
+            logger.info(f'Epoch: {epoch}, Batch: {batch_idx}/{len(train_loader)}, '
+                       f'Loss: {loss.item():.4f}, '
+                       f'Acc: {100. * correct / total:.2f}%, '
+                       f'LR: {current_lr:.6f}')
             
     avg_loss = total_loss / len(train_loader)
     accuracy = 100. * correct / len(train_loader.dataset)
@@ -86,20 +85,20 @@ def validate(model, val_loader, criterion, device, logger):
     total = 0
     
     with torch.no_grad():
-        with tqdm(val_loader, desc='Validation', leave=False) as pbar:
-            for data, target in pbar:
-                data, target = data.to(device), target.to(device)
-                output = model(data)
-                val_loss += criterion(output, target).item()
-                
-                pred = output.argmax(dim=1)
-                correct += pred.eq(target).sum().item()
-                total += target.size(0)
-                
-                pbar.set_postfix({
-                    'loss': f'{val_loss/total:.4f}',
-                    'acc': f'{100. * correct / total:.2f}%'
-                })
+        for batch_idx, (data, target) in enumerate(val_loader):
+            data, target = data.to(device), target.to(device)
+            output = model(data)
+            val_loss += criterion(output, target).item()
+            
+            pred = output.argmax(dim=1)
+            correct += pred.eq(target).sum().item()
+            total += target.size(0)
+            
+            # Log every 100 batches
+            if batch_idx % 100 == 0:
+                logger.info(f'Validation Batch: {batch_idx}/{len(val_loader)}, '
+                          f'Loss: {val_loss/total:.4f}, '
+                          f'Acc: {100. * correct / total:.2f}%')
     
     val_loss /= len(val_loader)
     accuracy = 100. * correct / len(val_loader.dataset)

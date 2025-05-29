@@ -1,6 +1,5 @@
 import sys
 import os
-import math
 
 # Add project root to Python path
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -43,9 +42,7 @@ def train_epoch(model, train_loader, criterion, optimizer, scheduler, device, ep
     correct = 0
     total = 0
     
-    count = 0
-
-    for batch_idx, (data, target) in enumerate(train_loader):
+    for batch_idx, data, target in enumerate(train_loader):
         data, target = data.to(device), target.to(device)
         
         optimizer.zero_grad()
@@ -65,16 +62,7 @@ def train_epoch(model, train_loader, criterion, optimizer, scheduler, device, ep
         
         total_loss += loss.item()
         current_lr = optimizer.param_groups[0]['lr']
-        
-        # Log every 100 batches
-        # if batch_idx % 100 == 0:
-        #     logger.info(f'Epoch: {epoch}, Batch: {batch_idx}/{len(train_loader)}, '
-        #                f'Loss: {loss.item():.4f}, '
-        #                f'Acc: {100. * correct / total:.2f}%, '
-        #                f'LR: {current_lr:.6f}')
-            
-        count += 1
-        if count == 5: break
+
             
     avg_loss = total_loss / len(train_loader)
     accuracy = 100. * correct / len(train_loader.dataset)
@@ -86,11 +74,9 @@ def validate(model, val_loader, criterion, device, logger):
     val_loss = 0
     correct = 0
     total = 0
-
-    count = 0
     
     with torch.no_grad():
-        for batch_idx, (data, target) in enumerate(val_loader):
+        for data, target in val_loader:
             data, target = data.to(device), target.to(device)
             output = model(data)
             val_loss += criterion(output, target).item()
@@ -98,15 +84,6 @@ def validate(model, val_loader, criterion, device, logger):
             pred = output.argmax(dim=1)
             correct += pred.eq(target).sum().item()
             total += target.size(0)
-            
-            # Log every 100 batches
-            # if batch_idx % 100 == 0:
-            #     logger.info(f'Validation Batch: {batch_idx}/{len(val_loader)}, '
-            #               f'Loss: {val_loss/total:.4f}, '
-            #               f'Acc: {100. * correct / total:.2f}%')
-                
-            count += 1
-            if count == 5: break
     
     val_loss /= len(val_loader)
     accuracy = 100. * correct / len(val_loader.dataset)

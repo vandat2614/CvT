@@ -4,12 +4,8 @@ import datetime
 import argparse
 import yaml
 import torch
-import torch.nn as nn
 import numpy as np
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import classification_report
 
 # Add project root to Python path
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -56,27 +52,19 @@ def evaluate_model(model, test_loader, device, logger, save_dir):
     all_predictions = np.array(all_predictions)
     class_names = test_loader.dataset.classes
 
-    # Calculate and save confusion matrix
-    cm = confusion_matrix(all_targets, all_predictions)
-    plt.figure(figsize=(15, 15))
-    sns.heatmap(cm, annot=True, fmt='d', xticklabels=class_names, yticklabels=class_names)
-    plt.title('Confusion Matrix')
-    plt.ylabel('True Label')
-    plt.xlabel('Predicted Label')
-    plt.tight_layout()
-    plt.savefig(os.path.join(save_dir, 'confusion_matrix.png'))
-    plt.close()
+    # Calculate and log classification report
+    report = classification_report(
+        all_targets,
+        all_predictions,
+        target_names=class_names,
+        digits=4
+    )
+    logger.info("\nClassification Report:")
+    logger.info(f"\n{report}")
 
-    # Create results DataFrame
-    results_df = pd.DataFrame({
-        'True_Label': [class_names[i] for i in all_targets],
-        'Predicted_Label': [class_names[i] for i in all_predictions]
-    })
-    results_df.to_csv(os.path.join(save_dir, 'test_results.csv'), index=False)
-
-    # Log accuracy
-    accuracy = (all_targets == all_predictions).mean() * 100
-    logger.info(f'Test Accuracy: {accuracy:.2f}%')
+    # Save report to file
+    with open(os.path.join(save_dir, 'classification_report.txt'), 'w') as f:
+        f.write(report)
 
 def main():
     args = parse_args()
@@ -132,7 +120,6 @@ def main():
     model = model.to(device)
     
     # Evaluate model
-    logger.info('Starting evaluation...')
     evaluate_model(model, test_loader, device, logger, results_dir)
     logger.info(f'Evaluation complete. Results saved to {results_dir}')
 

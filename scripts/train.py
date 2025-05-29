@@ -58,7 +58,7 @@ def train_epoch(model, train_loader, criterion, optimizer, scheduler, device, ep
             optimizer.step()
             
             # Update scheduler
-            scheduler.step_update(epoch * len(train_loader) + batch_idx)
+            scheduler.step() 
             
             # Calculate accuracy
             pred = output.argmax(dim=1)
@@ -161,15 +161,14 @@ def main():
     )
 
     # Setup scheduler
-    scheduler = CosineLRScheduler(
+    scheduler = torch.optim.lr_scheduler.OneCycleLR(
         optimizer,
-        t_initial=config['TRAIN']['END_EPOCH'] * len(train_loader),
-        lr_min=config['TRAIN']['LR_SCHEDULER']['ARGS']['min_lr'],
-        warmup_lr_init=config['TRAIN']['LR_SCHEDULER']['ARGS']['warmup_lr'],
-        warmup_t=config['TRAIN']['LR_SCHEDULER']['ARGS']['warmup_epochs'] * len(train_loader),
-        cycle_limit=1,
-        t_in_epochs=False,
-        cooldown_steps=config['TRAIN']['LR_SCHEDULER']['ARGS']['cooldown_epochs'] * len(train_loader)
+        max_lr=config['TRAIN']['LR'],
+        epochs=config['TRAIN']['END_EPOCH'],
+        steps_per_epoch=len(train_loader),
+        pct_start=config['TRAIN']['WARMUP_EPOCHS'] / config['TRAIN']['END_EPOCH'],
+        div_factor=25,
+        final_div_factor=1e4
     )
 
     # Resume from checkpoint if specified

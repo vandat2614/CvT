@@ -32,12 +32,4 @@ TRAIN:
   BEGIN_EPOCH: 0
   END_EPOCH: 5
   WD: 0.05
-
-  LR_SCHEDULER:
-    METHOD: 'timm'
-    ARGS:
-      sched: 'cosine'
-      warmup_epochs: 5
-      warmup_lr: 0.000001
-      min_lr: 0.00001
-      cooldown_epochs: 10
+  WARMUP_EPOCHS: 1  # Added for OneCycleLR

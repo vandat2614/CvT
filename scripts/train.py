@@ -68,11 +68,11 @@ def train_epoch(model, train_loader, criterion, optimizer, scheduler, device, ep
             total_loss += loss.item()
             current_lr = optimizer.param_groups[0]['lr']
             
-            pbar.set_postfix({
-                'loss': f'{loss.item():.4f}',
-                'acc': f'{100. * correct / total:.2f}%',
-                'lr': f'{current_lr:.6f}'
-            })
+            # pbar.set_postfix({
+            #     'loss': f'{loss.item():.4f}',
+            #     'acc': f'{100. * correct / total:.2f}%',
+            #     'lr': f'{current_lr:.6f}'
+            # })
             
     avg_loss = total_loss / len(train_loader)
     accuracy = 100. * correct / len(train_loader.dataset)

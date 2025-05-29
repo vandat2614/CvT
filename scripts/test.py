@@ -78,7 +78,7 @@ def main():
     os.makedirs(args.output_dir, exist_ok=True)
     
     # Setup logging directly to test.log
-    logger = setup_logging(os.path.join(args.output_dir, 'test.log'))
+    logger = setup_logging(args.output_dir, filename='test.log')
     logger.info('Starting evaluation...')
     
     # Setup device

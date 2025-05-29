@@ -2,7 +2,7 @@ import os
 import logging
 import sys
 
-def setup_logging(log_dir):
+def setup_logging(log_dir, filename='train.log'):
     """Setup logging configuration"""
     os.makedirs(log_dir, exist_ok=True)
     
@@ -12,7 +12,7 @@ def setup_logging(log_dir):
     
     # Create handlers
     console_handler = logging.StreamHandler(sys.stdout)
-    file_handler = logging.FileHandler(os.path.join(log_dir, 'train.log'))
+    file_handler = logging.FileHandler(os.path.join(log_dir, filename))
     
     # Create formatter
     formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')

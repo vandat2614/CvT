@@ -45,7 +45,7 @@ def train_epoch(model, train_loader, criterion, optimizer, scheduler, device, ep
     correct = 0
     total = 0
     
-    for batch_idx, (data, target) in enumerate(train_loader):
+    for batch_idx, (data, target) in enumerate(train_loader)[:10]:
         data, target = data.to(device), target.to(device)
         
         optimizer.zero_grad()
@@ -85,7 +85,7 @@ def validate(model, val_loader, criterion, device, logger):
     total = 0
     
     with torch.no_grad():
-        for batch_idx, (data, target) in enumerate(val_loader):
+        for batch_idx, (data, target) in enumerate(val_loader)[:10]:
             data, target = data.to(device), target.to(device)
             output = model(data)
             val_loss += criterion(output, target).item()

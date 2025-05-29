@@ -41,4 +41,3 @@ TRAIN:
       warmup_lr: 0.000001
       min_lr: 0.00001
       cooldown_epochs: 10
-      decay_rate: 0.1

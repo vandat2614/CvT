@@ -169,7 +169,6 @@ def main():
         warmup_t=config['TRAIN']['LR_SCHEDULER']['ARGS']['warmup_epochs'] * len(train_loader),
         cycle_limit=1,
         t_in_epochs=False,
-        decay_rate=config['TRAIN']['LR_SCHEDULER']['ARGS']['decay_rate'],
         cooldown_steps=config['TRAIN']['LR_SCHEDULER']['ARGS']['cooldown_epochs'] * len(train_loader)
     )
 

@@ -12,7 +12,8 @@ import torch.nn as nn
 
 from src.models import ConvolutionalVisionTransformer
 from src.data import create_data_loaders
-from src.utils import setup_logging
+from src.utils import setup_logging, EarlyStopping
+
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Train CvT model')
@@ -34,6 +35,14 @@ def parse_args():
     parser.add_argument('--resume',
                        default='',
                        help='path to resume from checkpoint')
+    parser.add_argument('--patience',
+                       type=int,
+                       default=7,
+                       help='patience epochs for early stopping')
+    parser.add_argument('--min-delta',
+                       type=float,
+                       default=1e-3,
+                       help='minimum change in val accuracy to be considered as improvement')
     return parser.parse_args()
 
 def train_epoch(model, train_loader, criterion, optimizer, scheduler, device, epoch, logger):
@@ -171,6 +180,13 @@ def main():
             logger.info(f'Loaded checkpoint from epoch {start_epoch}')
             logger.info(f'Previous best accuracy: {best_acc:.2f}%')
 
+    # Initialize early stopping
+    early_stopping = EarlyStopping(
+        patience=args.patience,
+        min_delta=args.min_delta,
+        mode='max'  # We're monitoring validation accuracy
+    )
+
     # Training loop
     num_epochs = config['TRAIN']['END_EPOCH']
     for epoch in range(start_epoch, num_epochs):
@@ -203,6 +219,10 @@ def main():
             torch.save(checkpoint, save_path)
             logger.info(f'Saved new best model with accuracy: {best_acc:.2f}% to {save_path}')
         
+        if early_stopping(val_acc):
+            logger.info(f'Early stopping triggered after {epoch + 1} epochs')
+            break
+
         # Save last checkpoint
         checkpoint = {
             'epoch': epoch + 1,

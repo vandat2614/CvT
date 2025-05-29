@@ -1,9 +1,9 @@
 import sys
 import os
-import datetime
 import argparse
 import yaml
 import torch
+import torch.nn as nn
 import numpy as np
 from sklearn.metrics import classification_report
 
@@ -34,7 +34,7 @@ def parse_args():
                        help='device to use (cuda or cpu)')
     return parser.parse_args()
 
-def evaluate_model(model, test_loader, device, logger, save_dir):
+def evaluate_model(model, test_loader, device, logger):
     model.eval()
     all_targets = []
     all_predictions = []
@@ -62,20 +62,23 @@ def evaluate_model(model, test_loader, device, logger, save_dir):
     logger.info("\nClassification Report:")
     logger.info(f"\n{report}")
 
-    # Save report to file
-    with open(os.path.join(save_dir, 'classification_report.txt'), 'w') as f:
-        f.write(report)
+    # Calculate and log per-class accuracy
+    logger.info("\nPer-class Accuracy:")
+    for i, class_name in enumerate(class_names):
+        mask = all_targets == i
+        class_correct = (all_predictions[mask] == i).sum()
+        class_total = mask.sum()
+        class_acc = (class_correct / class_total) * 100
+        logger.info(f"{class_name}: {class_acc:.2f}% ({class_correct}/{class_total})")
 
 def main():
     args = parse_args()
     
     # Create results directory
-    timestamp = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
-    results_dir = os.path.join(args.output_dir, f'evaluation_{timestamp}')
-    os.makedirs(results_dir, exist_ok=True)
+    os.makedirs(args.output_dir, exist_ok=True)
     
-    # Setup logging
-    logger = setup_logging(os.path.join(results_dir, 'test.log'))
+    # Setup logging directly to test.log
+    logger = setup_logging(os.path.join(args.output_dir, 'test.log'))
     logger.info('Starting evaluation...')
     
     # Setup device
@@ -120,8 +123,8 @@ def main():
     model = model.to(device)
     
     # Evaluate model
-    evaluate_model(model, test_loader, device, logger, results_dir)
-    logger.info(f'Evaluation complete. Results saved to {results_dir}')
+    evaluate_model(model, test_loader, device, logger)
+    logger.info('Evaluation complete.')
 
 if __name__ == '__main__':
     main()

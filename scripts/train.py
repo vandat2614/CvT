@@ -10,13 +10,14 @@ import yaml
 import torch
 import torch.nn as nn
 
+from torchvision.models import resnet18
 from src.models import ConvolutionalVisionTransformer, ViT
 from src.data import create_data_loaders
 from src.utils import setup_logging, EarlyStopping
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description='Train CvT model')
+    parser = argparse.ArgumentParser(description='Train CvT / ViT model')
     parser.add_argument('--config', 
                        default='configs/cvt-13-224x224.yaml',
                        help='path to config file')
@@ -163,6 +164,24 @@ def main():
             emb_dropout=config['MODEL']['SPEC']['ATTN_DROP_RATE'],
             init=config['MODEL']['SPEC']['INIT']
         )
+    elif config['MODEL']['NAME'] == 'cls_resnet18':
+        model = resnet18(pretrained=config['MODEL']['SPEC']['PRETRAINED'])
+        # Modify last layer for our number of classes
+        model.fc = nn.Linear(model.fc.in_features, num_classes)
+
+        if config['MODEL']['SPEC']['DROP_RATE'] > 0:
+            model.fc = nn.Sequential(
+                nn.Dropout(config['MODEL']['SPEC']['DROP_RATE']),
+                model.fc
+            )
+        # Initialize weights if not pretrained
+        if not config['MODEL']['SPEC']['PRETRAINED'] and config['MODEL']['SPEC']['INIT'] == 'kaiming':
+            for m in model.modules():
+                if isinstance(m, nn.Conv2d):
+                    nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
+                elif isinstance(m, nn.BatchNorm2d):
+                    nn.init.constant_(m.weight, 1)
+                    nn.init.constant_(m.bias, 0)
     else:
         raise ValueError(f"Unknown model type: {config['MODEL']['NAME']}")
 

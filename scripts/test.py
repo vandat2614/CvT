@@ -11,27 +11,24 @@ from sklearn.metrics import classification_report
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(project_root)
 
-from src.models import ConvolutionalVisionTransformer
 from src.data import create_data_loaders
-from src.utils import setup_logging
+from src.utils import *
 
 def parse_args():
-    parser = argparse.ArgumentParser(description='Test CvT model')
+    parser = argparse.ArgumentParser(description='Test Vision Models')
     parser.add_argument('--config', 
-                       default='configs/cvt-13-224x224.yaml',
+                       required=True,
                        help='path to config file')
     parser.add_argument('--data-dir',
                        required=True,
                        help='path to dataset directory')
-    parser.add_argument('--checkpoint',
-                       default='',
-                       help='path to model checkpoint')
+    parser.add_argument('--weights',
+                       required=True,
+                       help='path to model weights (can be checkpoint or state_dict)')
     parser.add_argument('--output-dir',
                        default='results',
                        help='path to save results')
-    parser.add_argument('--device',
-                       default='cuda',
-                       help='device to use (cuda or cpu)')
+
     return parser.parse_args()
 
 def evaluate_model(model, test_loader, device, logger):
@@ -77,8 +74,8 @@ def main():
     # Create results directory
     os.makedirs(args.output_dir, exist_ok=True)
     
-    # Setup logging directly to test.log
-    logger = setup_logging(args.output_dir, filename='test.log')
+    # Setup logging
+    logger = setup_logging(os.path.join(args.output_dir, 'test.log'))
     logger.info('Starting evaluation...')
     
     # Setup device
@@ -104,23 +101,19 @@ def main():
     num_classes = len(test_loader.dataset.classes)
     logger.info(f'Number of classes: {num_classes}')
     
-    # Create model
-    model = ConvolutionalVisionTransformer(
-        in_chans=3,
-        num_classes=num_classes,
-        init=config['MODEL']['SPEC']['INIT'],
-        spec=config['MODEL']['SPEC']
-    )
-    
-    # Load checkpoint if provided
-    if args.checkpoint:
-        logger.info(f'Loading checkpoint from {args.checkpoint}')
-        checkpoint = torch.load(args.checkpoint, map_location=device)
-        model.load_state_dict(checkpoint['model'])
-    else:
-        logger.info('Using randomly initialized model')
-    
+    # Create model based on config
+    model = create_model(config, num_classes)
     model = model.to(device)
+    
+    # Load weights
+    logger.info(f'Loading weights from {args.weights}')
+    weights = torch.load(args.weights, map_location=device)
+    if isinstance(weights, dict) and 'model' in weights:
+        # Loading from checkpoint
+        model.load_state_dict(weights['model'])
+    else:
+        # Loading just the model state dict
+        model.load_state_dict(weights)
     
     # Evaluate model
     evaluate_model(model, test_loader, device, logger)

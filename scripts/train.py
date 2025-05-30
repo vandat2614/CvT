@@ -10,7 +10,7 @@ import yaml
 import torch
 import torch.nn as nn
 
-from src.models import ConvolutionalVisionTransformer
+from src.models import ConvolutionalVisionTransformer, ViT
 from src.data import create_data_loaders
 from src.utils import setup_logging, EarlyStopping
 
@@ -140,13 +140,32 @@ def main():
     num_classes = len(train_loader.dataset.classes)
     logger.info(f'Number of classes: {num_classes}')
 
-    # Create model
-    model = ConvolutionalVisionTransformer(
-        in_chans=3,
-        num_classes=num_classes,
-        init=config['MODEL']['SPEC']['INIT'],
-        spec=config['MODEL']['SPEC']
-    )
+    # Create model based on config name
+    if config['MODEL']['NAME'] == 'cls_cvt':
+        model = ConvolutionalVisionTransformer(
+            in_chans=3,
+            num_classes=num_classes,
+            init=config['MODEL']['SPEC']['INIT'],
+            spec=config['MODEL']['SPEC']
+        )
+    elif config['MODEL']['NAME'] == 'cls_vit':
+        model = ViT(
+            image_size=config['TRAIN']['IMAGE_SIZE'][0],
+            patch_size=config['MODEL']['SPEC']['PATCH_SIZE'],
+            num_classes=num_classes,
+            dim=config['MODEL']['SPEC']['EMBED_DIM'],
+            depth=config['MODEL']['SPEC']['DEPTH'],
+            heads=config['MODEL']['SPEC']['NUM_HEADS'],
+            dim_head=config['MODEL']['SPEC']['DIM_HEAD'],
+            mlp_dim=int(config['MODEL']['SPEC']['EMBED_DIM'] * config['MODEL']['SPEC']['MLP_RATIO']),
+            pool=config['MODEL']['SPEC']['POOL'],
+            dropout=config['MODEL']['SPEC']['DROP_RATE'],
+            emb_dropout=config['MODEL']['SPEC']['ATTN_DROP_RATE'],
+            init=config['MODEL']['SPEC']['INIT']
+        )
+    else:
+        raise ValueError(f"Unknown model type: {config['MODEL']['NAME']}")
+
     model = model.to(device)
 
     # Define loss and optimizer

@@ -80,6 +80,7 @@ def train_epoch(model, train_loader, criterion, optimizer, scheduler, device, ep
     # Step scheduler
     if isinstance(scheduler, torch.optim.lr_scheduler.StepLR):
         scheduler.step()  # StepLR steps every epoch
+        current_lr = optimizer.param_groups[0]['lr']
             
     avg_loss = total_loss / len(train_loader)
     accuracy = 100. * correct / len(train_loader.dataset)

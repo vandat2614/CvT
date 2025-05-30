@@ -1,3 +1,4 @@
 from .cvt import ConvolutionalVisionTransformer
+from .vit import ViT
 
-__all__ = ['ConvolutionalVisionTransformer']
+__all__ = ['ConvolutionalVisionTransformer', 'ViT']

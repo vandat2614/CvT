@@ -35,6 +35,10 @@ def parse_args():
     parser.add_argument('--resume',
                        default='',
                        help='path to resume from checkpoint')
+    parser.add_argument('--early-stopping', 
+                    action='store_true',
+                    default=True,
+                    help='Enable early stopping (default: True)')
     parser.add_argument('--patience',
                        type=int,
                        default=7,
@@ -181,11 +185,12 @@ def main():
             logger.info(f'Previous best accuracy: {best_acc:.2f}%')
 
     # Initialize early stopping
-    early_stopping = EarlyStopping(
-        patience=args.patience,
-        min_delta=args.min_delta,
-        mode='max'  # We're monitoring validation accuracy
-    )
+    if args.early_stopping:
+        early_stopping = EarlyStopping(
+            patience=args.patience,
+            min_delta=args.min_delta,
+            mode='max'
+        )
 
     # Training loop
     num_epochs = config['TRAIN']['END_EPOCH']
@@ -219,10 +224,10 @@ def main():
             torch.save(checkpoint, save_path)
             logger.info(f'Saved new best model with accuracy: {best_acc:.2f}% to {save_path}')
         
-        if early_stopping(val_acc):
+        if args.early_stopping and early_stopping(val_acc):
             logger.info(f'Early stopping triggered after {epoch + 1} epochs')
             break
-
+        
         # Save last checkpoint
         checkpoint = {
             'epoch': epoch + 1,

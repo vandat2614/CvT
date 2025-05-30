@@ -82,7 +82,7 @@ def main():
     logger.info('Starting evaluation...')
     
     # Setup device
-    device = torch.device(args.device)
+    device = torch.device(args.device if torch.cuda.is_available() else 'cpu')
     logger.info(f'Using device: {device}')
     
     # Load config
@@ -93,7 +93,7 @@ def main():
     _, _, test_loader = create_data_loaders(
         data_dir=args.data_dir,
         img_size=tuple(config['TRAIN']['IMAGE_SIZE']),
-        batch_size=config['TRAIN']['BATCH_SIZE'],
+        batch_size=config['TEST']['BATCH_SIZE'],
         num_workers=config['WORKERS']
     )
     

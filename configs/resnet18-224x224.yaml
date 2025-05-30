@@ -15,3 +15,6 @@ TRAIN:
   END_EPOCH: 100
   WD: 0.1
   WARMUP_EPOCHS: 1  # Added for OneCycleLR
+
+TEST:
+  BATCH_SIZE: 256

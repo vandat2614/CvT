@@ -29,16 +29,16 @@ def parse_args():
     parser.add_argument('--log-dir',
                        default='logs',
                        help='path to save training logs')
-    parser.add_argument('--device',
+    parser.add_argument('--device', 
                        default='cuda',
                        help='device to use (cuda or cpu)')
     parser.add_argument('--resume',
                        default='',
                        help='path to resume from checkpoint')
     parser.add_argument('--early-stopping', 
-                    action='store_true',
-                    default=True,
-                    help='Enable early stopping (default: True)')
+                       type=lambda x: x.lower() == 'true',
+                       default=True,
+                       help='Enable early stopping (default: True)')
     parser.add_argument('--patience',
                        type=int,
                        default=7,
@@ -227,7 +227,7 @@ def main():
         if args.early_stopping and early_stopping(val_acc):
             logger.info(f'Early stopping triggered after {epoch + 1} epochs')
             break
-        
+
         # Save last checkpoint
         checkpoint = {
             'epoch': epoch + 1,

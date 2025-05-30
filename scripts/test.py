@@ -28,6 +28,9 @@ def parse_args():
     parser.add_argument('--output-dir',
                        default='results',
                        help='path to save results')
+    parser.add_argument('--device',
+                       default='cuda',
+                       help='device to use (cuda or cpu)')
 
     return parser.parse_args()
 
@@ -79,7 +82,7 @@ def main():
     logger.info('Starting evaluation...')
     
     # Setup device
-    device = torch.device(args.device if torch.cuda.is_available() else 'cpu')
+    device = torch.device(args.device)
     logger.info(f'Using device: {device}')
     
     # Load config

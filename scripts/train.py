@@ -11,6 +11,7 @@ import torch
 import torch.nn as nn
 
 from torchvision.models import resnet18
+from src.models import ConvolutionalVisionTransformer, ViT
 from src.data import create_data_loaders
 from src.utils import *
 
@@ -48,7 +49,6 @@ def parse_args():
                        help='minimum change in val accuracy to be considered as improvement')
     return parser.parse_args()
 
-
 def train_epoch(model, train_loader, criterion, optimizer, scheduler, device, epoch, logger):
     model.train()
     total_loss = 0
@@ -65,10 +65,9 @@ def train_epoch(model, train_loader, criterion, optimizer, scheduler, device, ep
         loss.backward()
         optimizer.step()
         
-        # Update scheduler only for OneCycleLR
-        if isinstance(scheduler, torch.optim.lr_scheduler.OneCycleLR):
-            scheduler.step()
-
+        # Update scheduler
+        scheduler.step() 
+        
         # Calculate accuracy
         pred = output.argmax(dim=1)
         correct += pred.eq(target).sum().item()
@@ -77,10 +76,6 @@ def train_epoch(model, train_loader, criterion, optimizer, scheduler, device, ep
         total_loss += loss.item()
         current_lr = optimizer.param_groups[0]['lr']
 
-    # Step scheduler
-    if isinstance(scheduler, torch.optim.lr_scheduler.StepLR):
-        scheduler.step()  # StepLR steps every epoch
-        current_lr = optimizer.param_groups[0]['lr']
             
     avg_loss = total_loss / len(train_loader)
     accuracy = 100. * correct / len(train_loader.dataset)
@@ -151,12 +146,22 @@ def main():
 
     # Define loss and optimizer
     criterion = nn.CrossEntropyLoss()
+    optimizer = torch.optim.AdamW(
+        model.parameters(),
+        lr=config['TRAIN']['LR'],
+        weight_decay=config['TRAIN']['WD']
+    )
 
-    # Create optimizer
-    optimizer = create_optimizer(config, model.parameters())
-
-    # Create scheduler
-    scheduler = create_scheduler(config, optimizer, train_loader)
+    # Setup scheduler
+    scheduler = torch.optim.lr_scheduler.OneCycleLR(
+        optimizer,
+        max_lr=config['TRAIN']['LR'],
+        epochs=config['TRAIN']['END_EPOCH'],
+        steps_per_epoch=len(train_loader),
+        pct_start=config['TRAIN']['WARMUP_EPOCHS'] / config['TRAIN']['END_EPOCH'],
+        div_factor=25,
+        final_div_factor=1e4
+    )
 
     # Resume from checkpoint if specified
     start_epoch = config['TRAIN']['BEGIN_EPOCH']

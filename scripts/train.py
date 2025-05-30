@@ -215,7 +215,7 @@ def main():
                 'best_acc': best_acc,
                 'config': config
             }
-            save_path = os.path.join(args.checkpoint_dir, 'best_model.pth')
+            save_path = os.path.join(args.checkpoint_dir, 'best_checkpoint.pth')
             torch.save(checkpoint, save_path)
             logger.info(f'Saved new best model with accuracy: {best_acc:.2f}% to {save_path}')
         
@@ -232,7 +232,7 @@ def main():
             'best_acc': best_acc,
             'config': config
         }
-        save_path = os.path.join(args.checkpoint_dir, 'last_model.pth')
+        save_path = os.path.join(args.checkpoint_dir, 'last_checkpoint.pth')
         torch.save(checkpoint, save_path)
 
 if __name__ == '__main__':

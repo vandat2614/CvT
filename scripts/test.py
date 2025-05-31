@@ -36,7 +36,7 @@ def parse_args():
                        help='device to use (cuda or cpu)')
     parser.add_argument('--verbose',
                        type=lambda x: x.lower() == 'true',
-                       default=False,
+                       default=True,
                        help='Print classification report and per-class accuracy (default: True)')
     return parser.parse_args()
 
@@ -70,6 +70,8 @@ def evaluate_model(model, test_loader, device, output_dir, logger, verbose=True)
         digits=4
     )
     
+    print("?????????????????")
+
     # Save report to file
     report_path = Path(output_dir) / 'classification_report.txt'
     with open(report_path, 'w') as f:

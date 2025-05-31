@@ -117,7 +117,7 @@ def main():
     # Create data loader
     _, _, test_loader = create_data_loaders(
         data_dir=args.data_dir,
-        img_size=tuple(config['TEST']['IMAGE_SIZE']),
+        img_size=tuple(config['TRAIN']['IMAGE_SIZE']),
         batch_size=config['TEST']['BATCH_SIZE'],
         num_workers=config['WORKERS']
     )

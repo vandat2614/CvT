@@ -34,9 +34,13 @@ def parse_args():
     parser.add_argument('--device',
                        default='cuda',
                        help='device to use (cuda or cpu)')
+    parser.add_argument('--verbose',
+                       type=lambda x: x.lower() == 'true',
+                       default=False,
+                       help='Print classification report and per-class accuracy (default: True)')
     return parser.parse_args()
 
-def evaluate_model(model, test_loader, device, output_dir, logger):
+def evaluate_model(model, test_loader, device, output_dir, logger, verbose=True):
     model.eval()
     all_targets = []
     all_predictions = []
@@ -68,8 +72,9 @@ def evaluate_model(model, test_loader, device, output_dir, logger):
     )
     
     # Print report to console
-    logger.info('\nClassification Report:')
-    logger.info('\n' + report)
+    if verbose:
+        logger.info('\nClassification Report:')
+        logger.info('\n' + report)
     
     # Save report to file
     report_path = Path(output_dir) / 'classification_report.txt'
@@ -79,7 +84,9 @@ def evaluate_model(model, test_loader, device, output_dir, logger):
 
     # Calculate and save per-class accuracy
     class_stats = {}
-    logger.info('\nPer-class Statistics:')
+    if verbose:
+        logger.info('\nPer-class Statistics:')
+
     for i, class_name in enumerate(class_names):
         mask = all_targets == i
         class_correct = int((all_predictions[mask] == i).sum())
@@ -93,7 +100,8 @@ def evaluate_model(model, test_loader, device, output_dir, logger):
         }
         
         # Print to console
-        logger.info(f'{class_name}: {class_acc:.2f}% ({class_correct}/{class_total})')
+        if verbose:
+            logger.info(f'{class_name}: {class_acc:.2f}% ({class_correct}/{class_total})')
     
     # Save to JSON
     stats_path = Path(output_dir) / 'class_accuracy.json'
@@ -149,7 +157,7 @@ def main():
         model.load_state_dict(weights)
     
     # Evaluate model
-    evaluate_model(model, test_loader, device, args.output_dir, logger)
+    evaluate_model(model, test_loader, device, args.output_dir, logger, verbose=args.verbose)
     logger.info('\nEvaluation complete.')
 
 if __name__ == '__main__':

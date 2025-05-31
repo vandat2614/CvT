@@ -24,3 +24,21 @@ def setup_logging(log_dir, filename='train.log'):
     logger.addHandler(file_handler)
     
     return logger
+
+def setup_console_logger(name='test'):
+    """Setup logger that only prints to console"""
+
+    logger = logging.getLogger(name)
+    logger.setLevel(logging.INFO)
+    
+    # Remove any existing handlers
+    if logger.handlers:
+        logger.handlers.clear()
+    
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(logging.INFO)
+    formatter = logging.Formatter('%(message)s')
+    console_handler.setFormatter(formatter)
+    logger.addHandler(console_handler)
+    
+    return logger

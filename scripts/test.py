@@ -70,8 +70,6 @@ def evaluate_model(model, test_loader, device, output_dir, logger, verbose=True)
         digits=4
     )
     
-    print("?????????????????")
-
     # Save report to file
     report_path = Path(output_dir) / 'classification_report.txt'
     with open(report_path, 'w') as f:
@@ -109,6 +107,7 @@ def evaluate_model(model, test_loader, device, output_dir, logger, verbose=True)
 
 def main():
     args = parse_args()
+    print("?????????????????")
     
     # Create results directory
     os.makedirs(args.output_dir, exist_ok=True)

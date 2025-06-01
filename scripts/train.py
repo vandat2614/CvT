@@ -11,7 +11,6 @@ import torch
 import torch.nn as nn
 
 from torchvision.models import resnet18
-from src.models import ConvolutionalVisionTransformer, ViT
 from src.data import create_data_loaders
 from src.utils import *
 

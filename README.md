@@ -27,7 +27,7 @@ The experiments are conducted on the [Leafsnap Dataset](https://www.kaggle.com/d
 
 ### Installation
 ```bash
-git clone https://github.com/vandat201/CvT.git
+git clone https://github.com/vandat2614/CvT.git
 cd CvT
 pip install -r requirements.txt
 ```

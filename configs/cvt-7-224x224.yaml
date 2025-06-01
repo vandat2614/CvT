@@ -1,4 +1,4 @@
-ORKERS: 4
+WORKERS: 4
 
 MODEL:
   NAME: cls_cvt

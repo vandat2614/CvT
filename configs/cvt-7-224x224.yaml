@@ -8,11 +8,8 @@ MODEL:
     PATCH_SIZE: [7, 3, 3]
     PATCH_STRIDE: [4, 2, 2]
     PATCH_PADDING: [2, 1, 1]
-    # Reduced embedding dimensions
     DIM_EMBED: [64, 128, 256]  
-    # Reduced number of heads
     NUM_HEADS: [1, 2, 4]
-    # Reduced depth (total 7 transformer blocks: 1+2+4)
     DEPTH: [1, 2, 4]
     MLP_RATIO: [4.0, 4.0, 4.0]
     ATTN_DROP_RATE: [0.0, 0.0, 0.0]

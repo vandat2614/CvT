@@ -1,5 +1,4 @@
 MODELS:
-
   
   CvT-7:
     config_path: "../configs/cvt-7-224x224.yaml"

@@ -10,8 +10,8 @@ We provide an interactive demo application that allows you to test different mod
 
 The experiments are conducted on the [Leafsnap Dataset](https://www.kaggle.com/datasets/xhlulu/leafsnap-dataset), which contains:
 - 185 species of trees from the Northeastern United States
-- Laboratory images for training
-- Field images for testing
+- 23,147 lab images: high-quality pressed leaf photos from the Smithsonian collection, with both backlit and front-lit versions.
+- 7,719 field images: typical mobile phone photos taken outdoors, with blur, noise, shadows, and varied lighting conditions.
 
 ## Model Performance
 

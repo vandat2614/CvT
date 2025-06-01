@@ -164,13 +164,12 @@ def main():
         </style>
     """, unsafe_allow_html=True)
 
-    st.title("🍃 Multi-Model Leaf Classifier")
+    st.title("🍃 Leaf Classifier")
     st.markdown("""
-        Upload a leaf image to classify it using different models:
-        - ResNet18: Classic CNN architecture
-        - CvT-13: 13-layer Convolutional Vision Transformer
-        - CvT-21: 21-layer Convolutional Vision Transformer 
-        - ViT-B: Vision Transformer Base model
+        Upload a leaf image to test with:
+        - ResNet18 (CNN)
+        - CvT-7, CvT-13, CvT-21 (Convolutional Vision Transformer)
+        - ViT-B (Vision Transformer)
     """)
 
     service = load_service()

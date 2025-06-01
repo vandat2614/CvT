@@ -16,7 +16,7 @@ def parse_args():
                        required=True,
                        help='path to dataset directory')
     parser.add_argument('--output-dir',
-                       default='app/configs',
+                       default='output',
                        help='directory to save class mapping')
     return parser.parse_args()
 

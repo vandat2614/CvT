@@ -1,0 +1,22 @@
+MODELS:
+
+  
+  CvT-7:
+    config_path: "../configs/cvt-7-224x224.yaml"
+    weights_path: "weights/CvT-7.pth"
+
+  CvT-13:
+    config_path: "../configs/cvt-13-224x224.yaml" 
+    weights_path: "weights/CvT-13.pth"
+  
+  CvT-21:
+    config_path: "../configs/cvt-21-224x224.yaml"
+    weights_path: "weights/CvT-21.pth"
+  
+  ViT-B:
+    config_path: "../configs/vit-base-224x224.yaml"
+    weights_path: "weights/ViT-B.pth"
+
+  ResNet18:
+    config_path: "../configs/resnet18-224x224.yaml"
+    weights_path: "weights/ResNet-18.pth"

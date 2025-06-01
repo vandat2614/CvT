@@ -89,7 +89,7 @@ def evaluate_model(model, test_loader, device, output_dir, logger):
     # Print results to console
     # logger.info('\nClassification Report:')
     # logger.info('\n' + report)
-    logger.info(f'Classification report saved to {report_path}')
+    logger.info(f'\nClassification report saved to {report_path}')
     
     # logger.info('\nPer-class Statistics:')
     # for class_name, stats in class_stats.items():

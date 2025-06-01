@@ -4,7 +4,7 @@ This project evaluates the performance of Convolutional Vision Transformers (CvT
 
 We provide an interactive demo application that allows you to test different models on your own leaf images:
 
-![Demo Interface](assets/demo.png)
+![Demo Interface](figures\app.png)
 
 ## Dataset
 

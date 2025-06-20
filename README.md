@@ -41,7 +41,7 @@ python tools/test.py --config configs/cvt-13-224x224.yaml \
                     --data_dir path/to/dataset
 ```
 
-### Demo Application
+### Demo
 Run the interactive Streamlit demo:
 ```bash
 cd demo

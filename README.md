@@ -17,20 +17,14 @@ The experiments are conducted on the [Leafsnap Dataset](https://www.kaggle.com/d
 
 | Model    | Parameters | Accuracy |
 |----------|------------|----------|
-| ResNet-18| 11.7M     | 94.2%    | 
-| ViT-B    | 86.1M     | 95.8%    | 
-| CvT-13   | 19.3M     | 96.1%    | 
-| CvT-21   | 27.6M     | 96.5%    | 
-| CvT-7    | 6.8M      | 95.3%    | 
+| ResNet-18| 11.7M     | 89.84%    | 
+| ViT-B    | 86.1M     | 91.12%    | 
+| CvT-13   | 19.3M     | 94.65%    | 
+| CvT-21   | 27.6M     | 93.65%    | 
+| CvT-7    | 6.8M      | 91.22%    | 
 
 ## Quick Start
 
-### Installation
-```bash
-git clone https://github.com/vandat2614/CvT.git
-cd CvT
-pip install -r requirements.txt
-```
 
 ### Training
 To train a model from scratch:
@@ -55,21 +49,3 @@ cd demo
 streamlit run app.py
 ```
 
-To try the demo, download the pre-trained weights [here](https://drive.google.com/file/weights) and place them to the `demo/weights/` folder.
-
-## Project Structure
-```
-├── configs/           # Model configuration files
-├── demo/              # Streamlit demo 
-│   ├── configs/      
-│   └── weights/      
-├── scripts/          # Training and testing scripts
-├── src/              # Core source code
-│   ├── data/         
-│   ├── models/       
-│   └── utils/        
-├── tools/            # Helper functions
-└── requirements.txt  # Project dependencies
-```
-
-## License

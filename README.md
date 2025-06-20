@@ -2,7 +2,6 @@
 
 This project evaluates the performance of Convolutional Vision Transformers (CvT) against traditional CNN (ResNet-18) and Vision Transformer (ViT-B) architectures. Additionally, we experiment a lightweight CvT variant for efficient leaf classification.
 
-We provide an interactive demo application that allows you to test different models on your own leaf images:
 
 ![Demo Interface](figures/app.png)
 

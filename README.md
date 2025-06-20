@@ -14,16 +14,18 @@ The experiments are conducted on the [Leafsnap Dataset](https://www.kaggle.com/d
 
 ## Model Performance
 
-| Model    | Parameters | Accuracy |
-|----------|------------|----------|
-| ResNet-18| 11.7M     | 89.84%    | 
-| ViT-B    | 86.1M     | 91.12%    | 
-| CvT-13   | 19.3M     | 94.65%    | 
-| CvT-21   | 27.6M     | 93.65%    | 
-| CvT-7    | 6.8M      | 91.22%    | 
+| Model     | Parameters | Accuracy |
+|-----------|------------|----------|
+| CvT-7     | 6.8M       | 89.84%   |
+| CvT-13    | 19.3M      | 91.12%   |
+| CvT-21    | 27.6M      | 94.65%   |
+| ViT-Base  | 86.1M      | 93.65%   |
+| ResNet-18 | 11.7M      | 91.22%   |
+
+Per-class accuracy results for each model are available in the `results/` folder.
+
 
 ## Quick Start
-
 
 ### Training
 To train a model from scratch:
@@ -41,6 +43,8 @@ python tools/test.py --config configs/cvt-13-224x224.yaml \
                     --data_dir path/to/dataset
 ```
 
+
+
 ### Demo
 Run the interactive Streamlit demo:
 ```bash
@@ -48,3 +52,5 @@ cd demo
 streamlit run app.py
 ```
 
+## Pretrained Weights
+You can download the pretrained weights from the following link:  [Model Weights](https://drive.google.com/drive/folders/1eOIfW9CzRqKg0PCgucJsonVoEJPh8KKB?usp=sharing)

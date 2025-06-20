@@ -1,0 +1,927 @@
+{
+    "abies_concolor": {
+        "accuracy": 100.0,
+        "correct_samples": 26,
+        "total_samples": 26
+    },
+    "abies_nordmanniana": {
+        "accuracy": 88.24,
+        "correct_samples": 15,
+        "total_samples": 17
+    },
+    "acer_campestre": {
+        "accuracy": 100.0,
+        "correct_samples": 15,
+        "total_samples": 15
+    },
+    "acer_ginnala": {
+        "accuracy": 100.0,
+        "correct_samples": 16,
+        "total_samples": 16
+    },
+    "acer_griseum": {
+        "accuracy": 92.31,
+        "correct_samples": 12,
+        "total_samples": 13
+    },
+    "acer_negundo": {
+        "accuracy": 100.0,
+        "correct_samples": 24,
+        "total_samples": 24
+    },
+    "acer_palmatum": {
+        "accuracy": 100.0,
+        "correct_samples": 22,
+        "total_samples": 22
+    },
+    "acer_pensylvanicum": {
+        "accuracy": 93.75,
+        "correct_samples": 15,
+        "total_samples": 16
+    },
+    "acer_platanoides": {
+        "accuracy": 92.86,
+        "correct_samples": 13,
+        "total_samples": 14
+    },
+    "acer_pseudoplatanus": {
+        "accuracy": 92.86,
+        "correct_samples": 13,
+        "total_samples": 14
+    },
+    "acer_rubrum": {
+        "accuracy": 100.0,
+        "correct_samples": 31,
+        "total_samples": 31
+    },
+    "acer_saccharinum": {
+        "accuracy": 100.0,
+        "correct_samples": 19,
+        "total_samples": 19
+    },
+    "acer_saccharum": {
+        "accuracy": 89.47,
+        "correct_samples": 17,
+        "total_samples": 19
+    },
+    "aesculus_flava": {
+        "accuracy": 92.86,
+        "correct_samples": 13,
+        "total_samples": 14
+    },
+    "aesculus_glabra": {
+        "accuracy": 76.47,
+        "correct_samples": 13,
+        "total_samples": 17
+    },
+    "aesculus_hippocastamon": {
+        "accuracy": 92.86,
+        "correct_samples": 13,
+        "total_samples": 14
+    },
+    "aesculus_pavi": {
+        "accuracy": 83.33,
+        "correct_samples": 20,
+        "total_samples": 24
+    },
+    "ailanthus_altissima": {
+        "accuracy": 100.0,
+        "correct_samples": 13,
+        "total_samples": 13
+    },
+    "albizia_julibrissin": {
+        "accuracy": 100.0,
+        "correct_samples": 15,
+        "total_samples": 15
+    },
+    "amelanchier_arborea": {
+        "accuracy": 71.43,
+        "correct_samples": 10,
+        "total_samples": 14
+    },
+    "amelanchier_canadensis": {
+        "accuracy": 75.0,
+        "correct_samples": 12,
+        "total_samples": 16
+    },
+    "amelanchier_laevis": {
+        "accuracy": 100.0,
+        "correct_samples": 16,
+        "total_samples": 16
+    },
+    "asimina_triloba": {
+        "accuracy": 96.0,
+        "correct_samples": 24,
+        "total_samples": 25
+    },
+    "betula_alleghaniensis": {
+        "accuracy": 87.5,
+        "correct_samples": 14,
+        "total_samples": 16
+    },
+    "betula_jacqemontii": {
+        "accuracy": 86.67,
+        "correct_samples": 13,
+        "total_samples": 15
+    },
+    "betula_lenta": {
+        "accuracy": 78.57,
+        "correct_samples": 11,
+        "total_samples": 14
+    },
+    "betula_nigra": {
+        "accuracy": 78.57,
+        "correct_samples": 11,
+        "total_samples": 14
+    },
+    "betula_populifolia": {
+        "accuracy": 93.33,
+        "correct_samples": 14,
+        "total_samples": 15
+    },
+    "broussonettia_papyrifera": {
+        "accuracy": 90.0,
+        "correct_samples": 27,
+        "total_samples": 30
+    },
+    "carpinus_betulus": {
+        "accuracy": 85.71,
+        "correct_samples": 12,
+        "total_samples": 14
+    },
+    "carpinus_caroliniana": {
+        "accuracy": 84.21,
+        "correct_samples": 16,
+        "total_samples": 19
+    },
+    "carya_cordiformis": {
+        "accuracy": 80.95,
+        "correct_samples": 17,
+        "total_samples": 21
+    },
+    "carya_glabra": {
+        "accuracy": 94.44,
+        "correct_samples": 17,
+        "total_samples": 18
+    },
+    "carya_ovata": {
+        "accuracy": 100.0,
+        "correct_samples": 16,
+        "total_samples": 16
+    },
+    "carya_tomentosa": {
+        "accuracy": 94.44,
+        "correct_samples": 17,
+        "total_samples": 18
+    },
+    "castanea_dentata": {
+        "accuracy": 88.24,
+        "correct_samples": 15,
+        "total_samples": 17
+    },
+    "catalpa_bignonioides": {
+        "accuracy": 91.3,
+        "correct_samples": 21,
+        "total_samples": 23
+    },
+    "catalpa_speciosa": {
+        "accuracy": 80.0,
+        "correct_samples": 16,
+        "total_samples": 20
+    },
+    "cedrus_atlantica": {
+        "accuracy": 75.0,
+        "correct_samples": 12,
+        "total_samples": 16
+    },
+    "cedrus_deodara": {
+        "accuracy": 83.33,
+        "correct_samples": 10,
+        "total_samples": 12
+    },
+    "cedrus_libani": {
+        "accuracy": 100.0,
+        "correct_samples": 17,
+        "total_samples": 17
+    },
+    "celtis_occidentalis": {
+        "accuracy": 60.0,
+        "correct_samples": 9,
+        "total_samples": 15
+    },
+    "celtis_tenuifolia": {
+        "accuracy": 100.0,
+        "correct_samples": 15,
+        "total_samples": 15
+    },
+    "cercidiphyllum_japonicum": {
+        "accuracy": 100.0,
+        "correct_samples": 15,
+        "total_samples": 15
+    },
+    "cercis_canadensis": {
+        "accuracy": 100.0,
+        "correct_samples": 23,
+        "total_samples": 23
+    },
+    "chamaecyparis_pisifera": {
+        "accuracy": 88.89,
+        "correct_samples": 16,
+        "total_samples": 18
+    },
+    "chamaecyparis_thyoides": {
+        "accuracy": 100.0,
+        "correct_samples": 17,
+        "total_samples": 17
+    },
+    "chionanthus_retusus": {
+        "accuracy": 100.0,
+        "correct_samples": 15,
+        "total_samples": 15
+    },
+    "chionanthus_virginicus": {
+        "accuracy": 91.3,
+        "correct_samples": 21,
+        "total_samples": 23
+    },
+    "cladrastis_lutea": {
+        "accuracy": 94.44,
+        "correct_samples": 17,
+        "total_samples": 18
+    },
+    "cornus_florida": {
+        "accuracy": 84.21,
+        "correct_samples": 16,
+        "total_samples": 19
+    },
+    "cornus_kousa": {
+        "accuracy": 71.43,
+        "correct_samples": 10,
+        "total_samples": 14
+    },
+    "cornus_mas": {
+        "accuracy": 58.82,
+        "correct_samples": 10,
+        "total_samples": 17
+    },
+    "corylus_colurna": {
+        "accuracy": 100.0,
+        "correct_samples": 9,
+        "total_samples": 9
+    },
+    "crataegus_crus-galli": {
+        "accuracy": 92.31,
+        "correct_samples": 12,
+        "total_samples": 13
+    },
+    "crataegus_laevigata": {
+        "accuracy": 100.0,
+        "correct_samples": 15,
+        "total_samples": 15
+    },
+    "crataegus_phaenopyrum": {
+        "accuracy": 93.33,
+        "correct_samples": 14,
+        "total_samples": 15
+    },
+    "crataegus_pruinosa": {
+        "accuracy": 100.0,
+        "correct_samples": 16,
+        "total_samples": 16
+    },
+    "crataegus_viridis": {
+        "accuracy": 88.24,
+        "correct_samples": 15,
+        "total_samples": 17
+    },
+    "cryptomeria_japonica": {
+        "accuracy": 90.91,
+        "correct_samples": 20,
+        "total_samples": 22
+    },
+    "diospyros_virginiana": {
+        "accuracy": 76.0,
+        "correct_samples": 19,
+        "total_samples": 25
+    },
+    "eucommia_ulmoides": {
+        "accuracy": 95.0,
+        "correct_samples": 19,
+        "total_samples": 20
+    },
+    "evodia_daniellii": {
+        "accuracy": 100.0,
+        "correct_samples": 12,
+        "total_samples": 12
+    },
+    "fagus_grandifolia": {
+        "accuracy": 81.25,
+        "correct_samples": 13,
+        "total_samples": 16
+    },
+    "ficus_carica": {
+        "accuracy": 94.12,
+        "correct_samples": 16,
+        "total_samples": 17
+    },
+    "fraxinus_americana": {
+        "accuracy": 72.73,
+        "correct_samples": 8,
+        "total_samples": 11
+    },
+    "fraxinus_nigra": {
+        "accuracy": 95.24,
+        "correct_samples": 20,
+        "total_samples": 21
+    },
+    "fraxinus_pennsylvanica": {
+        "accuracy": 92.86,
+        "correct_samples": 13,
+        "total_samples": 14
+    },
+    "ginkgo_biloba": {
+        "accuracy": 93.33,
+        "correct_samples": 14,
+        "total_samples": 15
+    },
+    "gleditsia_triacanthos": {
+        "accuracy": 95.24,
+        "correct_samples": 20,
+        "total_samples": 21
+    },
+    "gymnocladus_dioicus": {
+        "accuracy": 100.0,
+        "correct_samples": 15,
+        "total_samples": 15
+    },
+    "halesia_tetraptera": {
+        "accuracy": 93.33,
+        "correct_samples": 14,
+        "total_samples": 15
+    },
+    "ilex_opaca": {
+        "accuracy": 80.0,
+        "correct_samples": 20,
+        "total_samples": 25
+    },
+    "juglans_cinerea": {
+        "accuracy": 90.91,
+        "correct_samples": 20,
+        "total_samples": 22
+    },
+    "juglans_nigra": {
+        "accuracy": 94.12,
+        "correct_samples": 16,
+        "total_samples": 17
+    },
+    "juniperus_virginiana": {
+        "accuracy": 91.67,
+        "correct_samples": 11,
+        "total_samples": 12
+    },
+    "koelreuteria_paniculata": {
+        "accuracy": 90.0,
+        "correct_samples": 18,
+        "total_samples": 20
+    },
+    "larix_decidua": {
+        "accuracy": 80.0,
+        "correct_samples": 12,
+        "total_samples": 15
+    },
+    "liquidambar_styraciflua": {
+        "accuracy": 100.0,
+        "correct_samples": 17,
+        "total_samples": 17
+    },
+    "liriodendron_tulipifera": {
+        "accuracy": 96.0,
+        "correct_samples": 24,
+        "total_samples": 25
+    },
+    "maclura_pomifera": {
+        "accuracy": 97.83,
+        "correct_samples": 45,
+        "total_samples": 46
+    },
+    "magnolia_acuminata": {
+        "accuracy": 73.33,
+        "correct_samples": 11,
+        "total_samples": 15
+    },
+    "magnolia_denudata": {
+        "accuracy": 100.0,
+        "correct_samples": 18,
+        "total_samples": 18
+    },
+    "magnolia_grandiflora": {
+        "accuracy": 85.71,
+        "correct_samples": 12,
+        "total_samples": 14
+    },
+    "magnolia_macrophylla": {
+        "accuracy": 93.33,
+        "correct_samples": 14,
+        "total_samples": 15
+    },
+    "magnolia_soulangiana": {
+        "accuracy": 83.33,
+        "correct_samples": 5,
+        "total_samples": 6
+    },
+    "magnolia_stellata": {
+        "accuracy": 47.06,
+        "correct_samples": 8,
+        "total_samples": 17
+    },
+    "magnolia_tripetala": {
+        "accuracy": 81.25,
+        "correct_samples": 13,
+        "total_samples": 16
+    },
+    "magnolia_virginiana": {
+        "accuracy": 100.0,
+        "correct_samples": 18,
+        "total_samples": 18
+    },
+    "malus_angustifolia": {
+        "accuracy": 88.89,
+        "correct_samples": 8,
+        "total_samples": 9
+    },
+    "malus_baccata": {
+        "accuracy": 81.25,
+        "correct_samples": 13,
+        "total_samples": 16
+    },
+    "malus_coronaria": {
+        "accuracy": 87.5,
+        "correct_samples": 14,
+        "total_samples": 16
+    },
+    "malus_floribunda": {
+        "accuracy": 100.0,
+        "correct_samples": 16,
+        "total_samples": 16
+    },
+    "malus_hupehensis": {
+        "accuracy": 81.25,
+        "correct_samples": 13,
+        "total_samples": 16
+    },
+    "malus_pumila": {
+        "accuracy": 100.0,
+        "correct_samples": 18,
+        "total_samples": 18
+    },
+    "metasequoia_glyptostroboides": {
+        "accuracy": 94.44,
+        "correct_samples": 17,
+        "total_samples": 18
+    },
+    "morus_alba": {
+        "accuracy": 93.33,
+        "correct_samples": 14,
+        "total_samples": 15
+    },
+    "morus_rubra": {
+        "accuracy": 93.33,
+        "correct_samples": 14,
+        "total_samples": 15
+    },
+    "nyssa_sylvatica": {
+        "accuracy": 100.0,
+        "correct_samples": 17,
+        "total_samples": 17
+    },
+    "ostrya_virginiana": {
+        "accuracy": 100.0,
+        "correct_samples": 22,
+        "total_samples": 22
+    },
+    "oxydendrum_arboreum": {
+        "accuracy": 94.12,
+        "correct_samples": 16,
+        "total_samples": 17
+    },
+    "paulownia_tomentosa": {
+        "accuracy": 86.67,
+        "correct_samples": 13,
+        "total_samples": 15
+    },
+    "phellodendron_amurense": {
+        "accuracy": 93.33,
+        "correct_samples": 14,
+        "total_samples": 15
+    },
+    "picea_abies": {
+        "accuracy": 94.12,
+        "correct_samples": 16,
+        "total_samples": 17
+    },
+    "picea_orientalis": {
+        "accuracy": 94.12,
+        "correct_samples": 16,
+        "total_samples": 17
+    },
+    "picea_pungens": {
+        "accuracy": 70.59,
+        "correct_samples": 12,
+        "total_samples": 17
+    },
+    "pinus_bungeana": {
+        "accuracy": 83.33,
+        "correct_samples": 15,
+        "total_samples": 18
+    },
+    "pinus_cembra": {
+        "accuracy": 72.22,
+        "correct_samples": 13,
+        "total_samples": 18
+    },
+    "pinus_densiflora": {
+        "accuracy": 88.24,
+        "correct_samples": 15,
+        "total_samples": 17
+    },
+    "pinus_echinata": {
+        "accuracy": 82.35,
+        "correct_samples": 14,
+        "total_samples": 17
+    },
+    "pinus_flexilis": {
+        "accuracy": 77.78,
+        "correct_samples": 14,
+        "total_samples": 18
+    },
+    "pinus_koraiensis": {
+        "accuracy": 58.82,
+        "correct_samples": 10,
+        "total_samples": 17
+    },
+    "pinus_nigra": {
+        "accuracy": 88.24,
+        "correct_samples": 15,
+        "total_samples": 17
+    },
+    "pinus_parviflora": {
+        "accuracy": 88.89,
+        "correct_samples": 16,
+        "total_samples": 18
+    },
+    "pinus_peucea": {
+        "accuracy": 70.59,
+        "correct_samples": 12,
+        "total_samples": 17
+    },
+    "pinus_pungens": {
+        "accuracy": 87.5,
+        "correct_samples": 14,
+        "total_samples": 16
+    },
+    "pinus_resinosa": {
+        "accuracy": 94.12,
+        "correct_samples": 16,
+        "total_samples": 17
+    },
+    "pinus_rigida": {
+        "accuracy": 82.35,
+        "correct_samples": 14,
+        "total_samples": 17
+    },
+    "pinus_strobus": {
+        "accuracy": 92.86,
+        "correct_samples": 13,
+        "total_samples": 14
+    },
+    "pinus_sylvestris": {
+        "accuracy": 100.0,
+        "correct_samples": 16,
+        "total_samples": 16
+    },
+    "pinus_taeda": {
+        "accuracy": 100.0,
+        "correct_samples": 17,
+        "total_samples": 17
+    },
+    "pinus_thunbergii": {
+        "accuracy": 92.31,
+        "correct_samples": 12,
+        "total_samples": 13
+    },
+    "pinus_virginiana": {
+        "accuracy": 58.82,
+        "correct_samples": 10,
+        "total_samples": 17
+    },
+    "pinus_wallichiana": {
+        "accuracy": 87.5,
+        "correct_samples": 14,
+        "total_samples": 16
+    },
+    "platanus_acerifolia": {
+        "accuracy": 85.71,
+        "correct_samples": 12,
+        "total_samples": 14
+    },
+    "platanus_occidentalis": {
+        "accuracy": 100.0,
+        "correct_samples": 19,
+        "total_samples": 19
+    },
+    "populus_deltoides": {
+        "accuracy": 94.12,
+        "correct_samples": 16,
+        "total_samples": 17
+    },
+    "populus_grandidentata": {
+        "accuracy": 100.0,
+        "correct_samples": 17,
+        "total_samples": 17
+    },
+    "populus_tremuloides": {
+        "accuracy": 94.12,
+        "correct_samples": 16,
+        "total_samples": 17
+    },
+    "prunus_pensylvanica": {
+        "accuracy": 100.0,
+        "correct_samples": 15,
+        "total_samples": 15
+    },
+    "prunus_sargentii": {
+        "accuracy": 93.1,
+        "correct_samples": 27,
+        "total_samples": 29
+    },
+    "prunus_serotina": {
+        "accuracy": 93.75,
+        "correct_samples": 15,
+        "total_samples": 16
+    },
+    "prunus_serrulata": {
+        "accuracy": 85.71,
+        "correct_samples": 12,
+        "total_samples": 14
+    },
+    "prunus_subhirtella": {
+        "accuracy": 47.06,
+        "correct_samples": 8,
+        "total_samples": 17
+    },
+    "prunus_virginiana": {
+        "accuracy": 83.87,
+        "correct_samples": 26,
+        "total_samples": 31
+    },
+    "prunus_yedoensis": {
+        "accuracy": 92.86,
+        "correct_samples": 13,
+        "total_samples": 14
+    },
+    "pseudolarix_amabilis": {
+        "accuracy": 81.25,
+        "correct_samples": 13,
+        "total_samples": 16
+    },
+    "ptelea_trifoliata": {
+        "accuracy": 100.0,
+        "correct_samples": 27,
+        "total_samples": 27
+    },
+    "pyrus_calleryana": {
+        "accuracy": 100.0,
+        "correct_samples": 18,
+        "total_samples": 18
+    },
+    "quercus_acutissima": {
+        "accuracy": 94.12,
+        "correct_samples": 16,
+        "total_samples": 17
+    },
+    "quercus_alba": {
+        "accuracy": 100.0,
+        "correct_samples": 18,
+        "total_samples": 18
+    },
+    "quercus_bicolor": {
+        "accuracy": 93.75,
+        "correct_samples": 15,
+        "total_samples": 16
+    },
+    "quercus_cerris": {
+        "accuracy": 100.0,
+        "correct_samples": 14,
+        "total_samples": 14
+    },
+    "quercus_coccinea": {
+        "accuracy": 100.0,
+        "correct_samples": 15,
+        "total_samples": 15
+    },
+    "quercus_falcata": {
+        "accuracy": 85.71,
+        "correct_samples": 6,
+        "total_samples": 7
+    },
+    "quercus_imbricaria": {
+        "accuracy": 80.0,
+        "correct_samples": 12,
+        "total_samples": 15
+    },
+    "quercus_macrocarpa": {
+        "accuracy": 100.0,
+        "correct_samples": 17,
+        "total_samples": 17
+    },
+    "quercus_marilandica": {
+        "accuracy": 88.89,
+        "correct_samples": 16,
+        "total_samples": 18
+    },
+    "quercus_michauxii": {
+        "accuracy": 88.24,
+        "correct_samples": 15,
+        "total_samples": 17
+    },
+    "quercus_montana": {
+        "accuracy": 100.0,
+        "correct_samples": 25,
+        "total_samples": 25
+    },
+    "quercus_muehlenbergii": {
+        "accuracy": 47.83,
+        "correct_samples": 11,
+        "total_samples": 23
+    },
+    "quercus_nigra": {
+        "accuracy": 94.12,
+        "correct_samples": 16,
+        "total_samples": 17
+    },
+    "quercus_palustris": {
+        "accuracy": 100.0,
+        "correct_samples": 14,
+        "total_samples": 14
+    },
+    "quercus_phellos": {
+        "accuracy": 100.0,
+        "correct_samples": 14,
+        "total_samples": 14
+    },
+    "quercus_robur": {
+        "accuracy": 93.33,
+        "correct_samples": 14,
+        "total_samples": 15
+    },
+    "quercus_rubra": {
+        "accuracy": 100.0,
+        "correct_samples": 8,
+        "total_samples": 8
+    },
+    "quercus_shumardii": {
+        "accuracy": 100.0,
+        "correct_samples": 16,
+        "total_samples": 16
+    },
+    "quercus_stellata": {
+        "accuracy": 88.89,
+        "correct_samples": 16,
+        "total_samples": 18
+    },
+    "quercus_velutina": {
+        "accuracy": 94.44,
+        "correct_samples": 17,
+        "total_samples": 18
+    },
+    "quercus_virginiana": {
+        "accuracy": 88.24,
+        "correct_samples": 15,
+        "total_samples": 17
+    },
+    "robinia_pseudo-acacia": {
+        "accuracy": 87.5,
+        "correct_samples": 14,
+        "total_samples": 16
+    },
+    "salix_babylonica": {
+        "accuracy": 100.0,
+        "correct_samples": 18,
+        "total_samples": 18
+    },
+    "salix_caroliniana": {
+        "accuracy": 88.24,
+        "correct_samples": 15,
+        "total_samples": 17
+    },
+    "salix_matsudana": {
+        "accuracy": 94.12,
+        "correct_samples": 16,
+        "total_samples": 17
+    },
+    "salix_nigra": {
+        "accuracy": 100.0,
+        "correct_samples": 20,
+        "total_samples": 20
+    },
+    "sassafras_albidum": {
+        "accuracy": 85.71,
+        "correct_samples": 12,
+        "total_samples": 14
+    },
+    "staphylea_trifolia": {
+        "accuracy": 95.45,
+        "correct_samples": 21,
+        "total_samples": 22
+    },
+    "stewartia_pseudocamellia": {
+        "accuracy": 82.35,
+        "correct_samples": 14,
+        "total_samples": 17
+    },
+    "styrax_japonica": {
+        "accuracy": 86.96,
+        "correct_samples": 20,
+        "total_samples": 23
+    },
+    "styrax_obassia": {
+        "accuracy": 62.5,
+        "correct_samples": 5,
+        "total_samples": 8
+    },
+    "syringa_reticulata": {
+        "accuracy": 90.0,
+        "correct_samples": 9,
+        "total_samples": 10
+    },
+    "taxodium_distichum": {
+        "accuracy": 100.0,
+        "correct_samples": 18,
+        "total_samples": 18
+    },
+    "tilia_americana": {
+        "accuracy": 100.0,
+        "correct_samples": 17,
+        "total_samples": 17
+    },
+    "tilia_cordata": {
+        "accuracy": 95.0,
+        "correct_samples": 19,
+        "total_samples": 20
+    },
+    "tilia_europaea": {
+        "accuracy": 92.86,
+        "correct_samples": 13,
+        "total_samples": 14
+    },
+    "tilia_tomentosa": {
+        "accuracy": 93.33,
+        "correct_samples": 14,
+        "total_samples": 15
+    },
+    "toona_sinensis": {
+        "accuracy": 85.71,
+        "correct_samples": 6,
+        "total_samples": 7
+    },
+    "tsuga_canadensis": {
+        "accuracy": 94.74,
+        "correct_samples": 18,
+        "total_samples": 19
+    },
+    "ulmus_americana": {
+        "accuracy": 95.45,
+        "correct_samples": 21,
+        "total_samples": 22
+    },
+    "ulmus_glabra": {
+        "accuracy": 52.94,
+        "correct_samples": 9,
+        "total_samples": 17
+    },
+    "ulmus_parvifolia": {
+        "accuracy": 94.12,
+        "correct_samples": 16,
+        "total_samples": 17
+    },
+    "ulmus_procera": {
+        "accuracy": 58.33,
+        "correct_samples": 7,
+        "total_samples": 12
+    },
+    "ulmus_pumila": {
+        "accuracy": 88.89,
+        "correct_samples": 24,
+        "total_samples": 27
+    },
+    "ulmus_rubra": {
+        "accuracy": 93.75,
+        "correct_samples": 30,
+        "total_samples": 32
+    },
+    "zelkova_serrata": {
+        "accuracy": 94.74,
+        "correct_samples": 18,
+        "total_samples": 19
+    }
+}

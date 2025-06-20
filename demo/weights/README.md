@@ -7,5 +7,3 @@ Place the following model weights in this directory:
 - `CvT-13.pth`: CvT-13 model weights
 - `CvT-21.pth`: CvT-21 model weights
 - `ViT-B.pth`: Vision Transformer Base model weights
-
-These weights can be downloaded from [] or trained using the training scripts in this repository.
